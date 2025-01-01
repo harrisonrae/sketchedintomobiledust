@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Book</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        .book {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 90vh;
+        }
+
+        .page {
+            width: 50%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .page img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page" id="left-page">
+            <img src="media/eeki1.png" alt="Page 1 Left">
+        </div>
+        <div class="page" id="right-page">
+            <img src="media/eeki2.png" alt="Page 1 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/bada1.png" alt="Page 2 Left">
+        </div>
+        <div class="page">
+            <img src="media/bada2.png" alt="Page 2 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/bar1.png" alt="Page 3 Left">
+        </div>
+        <div class="page">
+            <img src="media/bar2.png" alt="Page 3 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/cop1.png" alt="Page 4 Left">
+        </div>
+        <div class="page">
+            <img src="media/cop2.png" alt="Page 4 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/devil at the fireplace1.png" alt="Page 5 Left">
+        </div>
+        <div class="page">
+            <img src="media/devil at the fireplace3.png" alt="Page 5 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/dogcat1.png" alt="Page 6 Left">
+        </div>
+        <div class="page">
+            <img src="media/dogcat2.png" alt="Page 6 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/dragon1.png" alt="Page 7 Left">
+        </div>
+        <div class="page">
+            <img src="media/dragon2.png" alt="Page 7 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/fireplace1.png" alt="Page 8 Left">
+        </div>
+        <div class="page">
+            <img src="media/fireplace2.png" alt="Page 8 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="media/muscle1.png" alt="Page 9 Left">
+        </div>
+        <div class="page">
+            <img src="media/muscle2.png" alt="Page 9 Right">
+        </div>
+    </div>
+
+    <div class="book hidden">
+        <div class="page">
+            <img src="page10-left.jpg" alt="Page 10 Left">
+        </div>
+        <div class="page">
+            <img src="page10-right.jpg" alt="Page 10 Right">
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 10;
+        const books = document.querySelectorAll('.book');
+
+        document.body.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                books[currentPage - 1].classList.add('hidden');
+                books[currentPage].classList.remove('hidden');
+                currentPage++;
+            }
+        });
+    </script>
+</body>
+</html>
