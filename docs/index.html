@@ -15,7 +15,7 @@
         }
 
         .book {
-            display: flex;
+            display: none; /* Hide all books by default */
             justify-content: center;
             align-items: center;
             width: 90%;
@@ -25,10 +25,15 @@
             height: 90vh;
         }
 
+        .book.active {
+            display: flex; /* Show only active book */
+        }
+
         .page {
-            width: 100%;
-            height: 100%;
+            width: 90%;
+            height: 45%;
             background-color: white;
+            margin: 5px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,19 +46,20 @@
             height: 100%;
             object-fit: cover;
         }
+
     </style>
 </head>
 <body>
-    <div class="book">
-        <div class="page" id="left-page">
+    <div class="book active">
+        <div class="page">
             <img src="media/sketched into mobile dust2.png" alt="Page 1 Left">
         </div>
-        <div class="page" id="right-page">
-            <img src="media/eeki2.png" alt="Page 1 Right">
+        <div class="page">
+            <img src="media/sketched into mobile dust2.png" alt="Page 1 Right">
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/bada1.png" alt="Page 2 Left">
         </div>
@@ -62,7 +68,7 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/bar1.png" alt="Page 3 Left">
         </div>
@@ -71,7 +77,7 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/cop1.png" alt="Page 4 Left">
         </div>
@@ -80,7 +86,7 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/devil at the fireplace1.png" alt="Page 5 Left">
         </div>
@@ -89,7 +95,7 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/dogcat1.png" alt="Page 6 Left">
         </div>
@@ -98,7 +104,7 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
             <img src="media/dragon1.png" alt="Page 7 Left">
         </div>
@@ -107,43 +113,45 @@
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
-            <img src="media/fireplace1.png" alt="Page 8 Left">
+            <img src="media/eeki1.png" alt="Page 8 Left">
         </div>
         <div class="page">
-            <img src="media/fireplace2.png" alt="Page 8 Right">
-        </div>
-    </div>
-
-    <div class="book hidden">
-        <div class="page">
-            <img src="media/muscle1.png" alt="Page 9 Left">
-        </div>
-        <div class="page">
-            <img src="media/muscle2.png" alt="Page 9 Right">
+            <img src="media/eeki2.png" alt="Page 8 Right">
         </div>
     </div>
 
-    <div class="book hidden">
+    <div class="book">
         <div class="page">
-            <img src="media/eeki1.png" alt="Page 10 Left">
+            <img src="media/fireplace1.png" alt="Page 9 Left">
         </div>
         <div class="page">
-            <img src="media/eeki2.png" alt="Page 10 Right">
+            <img src="media/fireplace2.png" alt="Page 9 Right">
         </div>
     </div>
 
+    <div class="book">
+        <div class="page">
+            <img src="media/muscle1.png" alt="Page 10 Left">
+        </div>
+        <div class="page">
+            <img src="media/muscle2.png" alt="Page 10 Right">
+        </div>
+    </div>
+
+   
+   
+    
     <script>
-        let currentPage = 1;
-        const totalPages = 10;
+        let currentPage = 0;
         const books = document.querySelectorAll('.book');
 
         document.body.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                books[currentPage - 1].classList.add('hidden');
-                books[currentPage].classList.remove('hidden');
+            if (currentPage < books.length - 1) {
+                books[currentPage].classList.remove('active');
                 currentPage++;
+                books[currentPage].classList.add('active');
             }
         });
     </script>
