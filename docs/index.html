@@ -18,7 +18,7 @@
             display: none; /* Hide all books by default */
             justify-content: center;
             align-items: center;
-            width: 90%;
+            width: 100%;
             max-width: 800px;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -45,6 +45,31 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+         /* Media query for smaller screens */
+         @media (max-width: 768px) {
+            .page {
+                width: 80%; /* Reduce width */
+                height: 40%; /* Reduce height */
+                margin: 3px 0;
+            }
+
+            .page img {
+                object-fit: contain; /* Ensure images scale nicely */
+            }
+
+            footer {
+                font-size: 12px; /* Smaller footer text */
+            }
+        }
+
+        /* Media query for very small screens like phones */
+        @media (max-width: 480px) {
+            .page {
+                width: 75%; /* Further reduce width */
+                height: 35%; /* Further reduce height */
+            }
         }
 
     </style>
